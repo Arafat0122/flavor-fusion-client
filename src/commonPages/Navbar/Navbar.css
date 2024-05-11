@@ -1,0 +1,12 @@
+.active {
+    background-image: linear-gradient(to right, #787c54, #5d7054);
+    font-weight: 700;
+    border-radius: 5px; /* Add border radius for rounded corners */
+    padding: 0.5rem 1rem; /* Add padding for spacing */
+    transition: all 0.3s ease; /* Add transition effect */
+}
+
+.active:hover {
+    /* Optionally, you can add hover styles for the active navlink */
+    opacity: 0.9;
+}

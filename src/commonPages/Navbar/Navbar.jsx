@@ -1,12 +1,20 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import './Navbar.css'
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
+import { Tooltip } from "react-tooltip";
 
 
 
 const Navbar = () => {
 
-    // const isLoggedIn = false;
-    const isLoggedIn = true;
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleSignOut = () => {
+        logOut()
+            .then()
+            .catch()
+    }
 
     const navLinks = <>
         <li><NavLink to={'/'} className="">Home</NavLink></li>
@@ -16,7 +24,7 @@ const Navbar = () => {
 
 
     return (
-        <div>
+        <div className="mb-3">
             <div className="navbar bg-[#e3eaa7] text-[#57742b] py-4">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -36,29 +44,36 @@ const Navbar = () => {
                         {navLinks}
                     </ul>
                 </div>
-                <div className="navbar-end px-1 space-x-2 text-lg font-bold">
-                    {isLoggedIn ? (
+                <div className="navbar-end px-3 space-x-2 text-lg font-bold">
+                    {user ? (
                         <>
                             {/* Show profile picture and logout button */}
+                            <Link><button onClick={handleSignOut}>Log Out</button></Link>
                             <div className="dropdown dropdown-end">
-                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                    <div className="w-18 rounded-full">
-                                        <img alt="Tailwind CSS Navbar component" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                <div tabIndex={0} role="button" className="avatar">
+                                    <div className="w-14 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                        <img title={user.displayName} alt={user.displayName} src={user.photoURL} />
+                                        <Tooltip
+                                            anchorSelect="#my-anchor-element"
+                                            content={user.displayName}
+                                        />
                                     </div>
                                 </div>
-                                <ul tabIndex={0} className="mt-1 z-[1] p-2 shadow menu menu-sm dropdown-content bg-[#888d57] rounded-box w-32">
-                                    <li>
-                                        <a className="justify-between">
-                                            Profile
-                                        </a>
-                                    </li>
-                                    <li><a>Settings</a></li>
-                                    <li><a>Logout</a></li>
+                                <ul tabIndex={0} className="mt-1 z-[1] p-2 shadow menu menu-sm dropdown-content bg-[#888d57] rounded-box w-48 t text-white">
+                                    <li><Link to={'/'} >My added food items</Link></li>
+                                    <li><Link to={'/'} >Add a food item</Link></li>
+                                    <li><Link to={'/'} >My ordered food items</Link></li>
                                 </ul>
                             </div>
                         </>
                     ) : (
-                        <a href="#" className="hover:underline">Login</a>
+                        <>
+                            <div className="space-x-2">
+                                <Link to={'/login'}>Login</Link>
+                                <span>|</span>
+                                <Link to={'/register'}>Register</Link>
+                            </div>
+                        </>
                     )}
                 </div>
             </div>

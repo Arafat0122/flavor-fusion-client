@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../commonPages/Navbar/Navbar";
 import Footer from "../commonPages/Footer/Footer";
+import { ToastContainer } from "react-toastify";
 
 
 const Root = () => {
@@ -13,6 +14,7 @@ const Root = () => {
                 </div>
                 <Footer></Footer>
             </div>
+            <ToastContainer />
         </div>
     );
 };

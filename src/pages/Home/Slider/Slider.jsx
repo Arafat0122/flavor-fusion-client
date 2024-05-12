@@ -26,7 +26,7 @@ const Slider = () => {
                 spaceBetween={30}
                 centeredSlides={true}
                 autoplay={{
-                    delay: 5000,
+                    delay: 2500,
                     disableOnInteraction: false,
                 }}
                 pagination={{
@@ -50,7 +50,7 @@ const Slider = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="her h-fit" style={{ backgroundImage: 'url(https://www.bu.edu/bhr/files/2017/01/service-1303313_1280.jpg)' }}>
+                    <div className="her h-fit" style={{ backgroundImage: 'url(https://panoramicrestaurant.com/wp-content/uploads/2023/07/2TH08812-1-scaled.jpg)' }}>
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="text-neutral-content py-10 md:py-16 lg:py-28 px-5 md:px-14 lg:px-16">
                             <div className="h-fit my-auto">
@@ -62,7 +62,7 @@ const Slider = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="her h-fit" style={{ backgroundImage: 'url(https://www.bu.edu/bhr/files/2017/01/service-1303313_1280.jpg)' }}>
+                    <div className="her h-fit" style={{ backgroundImage: 'url(https://cdn.cluboenologique.com/wp-content/uploads/2019/08/12161304/ct-birdseye_38515147396_o-e1588693413556.jpg)' }}>
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="text-neutral-content py-10 md:py-16 lg:py-28 px-5 md:px-14 lg:px-16">
                             <div className="h-fit my-auto">
@@ -74,7 +74,7 @@ const Slider = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="her h-fit" style={{ backgroundImage: 'url(https://www.bu.edu/bhr/files/2017/01/service-1303313_1280.jpg)' }}>
+                    <div className="her h-fit" style={{ backgroundImage: 'url(https://www.escoffier.edu/wp-content/uploads/2022/07/View-of-stylish-empty-cafe-with-arranged-wooden-tables-and-black-chairs-768.jpeg)' }}>
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="text-neutral-content py-10 md:py-16 lg:py-28 px-5 md:px-14 lg:px-16">
                             <div className="h-fit my-auto">
@@ -86,7 +86,7 @@ const Slider = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="her h-fit" style={{ backgroundImage: 'url(https://www.bu.edu/bhr/files/2017/01/service-1303313_1280.jpg)' }}>
+                    <div className="her h-fit" style={{ backgroundImage: 'url(https://www.moma.org/d/p/sa/8-14-23_Restaurant-Header_Final.jpg)' }}>
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="text-neutral-content py-10 md:py-16 lg:py-28 px-5 md:px-14 lg:px-16">
                             <div className="h-fit my-auto">

@@ -10,19 +10,14 @@ const PrivateRoute = ({ children }) => {
 
     if (loading) {
         return (
-            <div className="flex gap-4 w-full">
-                <div className="skeleton w-2/4 h-96 rounded-lg"></div>
-                <div>
-                    <div className="skeleton h-8 w-full"></div>
-                    <div className="skeleton h-8 w-full"></div>
-                    <div className="skeleton h-8 w-full"></div>
-                </div>
+            <div>
+                <progress className="progress w-96"></progress>
             </div>
         )
 
     }
 
-    if (user) {
+    if (user?.email) {
         return children
     }
     return <Navigate state={location.pathname} to={'/login'}></Navigate>

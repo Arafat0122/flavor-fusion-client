@@ -60,9 +60,9 @@ const Navbar = () => {
                                     </div>
                                 </div>
                                 <ul tabIndex={0} className="mt-1 z-[2] p-2 shadow menu menu-sm dropdown-content bg-[#888d57] rounded-box w-48 t text-white">
-                                    <li><Link to={'/'} >My added food items</Link></li>
+                                    <li><Link to={'/addedFood'} >My added food items</Link></li>
                                     <li><Link to={'/add'} >Add a food item</Link></li>
-                                    <li><Link to={'/'} >My ordered food items</Link></li>
+                                    <li><Link to={'/orderFood'} >My ordered food items</Link></li>
                                 </ul>
                             </div>
                         </>

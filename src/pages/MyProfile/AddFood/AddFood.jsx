@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const AddFood = () => {
@@ -15,15 +16,46 @@ const AddFood = () => {
         const price = parseFloat(form.get('price'));
         const foodOrigin = form.get('foodOrigin');
         const quantity = parseInt(form.get('quantity'));
+        const item1 = form.get('item-1');
+        const item2 = form.get('item-2');
+        const item3 = form.get('item-3');
+        const item4 = form.get('item-4');
+        const item5 = form.get('item-5');
+        const ingredients = [item1, item2, item3, item4, item5];
+        const step1 = form.get('step-1');
+        const step2 = form.get('step-2');
+        const step3 = form.get('step-3');
+        const step4 = form.get('step-4');
+        const step5 = form.get('step-5');
+        const making = [step1, step2, step3, step4, step5];
+        const description = { ingredients, making };
         const email = form.get('email');
         const name = form.get('name');
 
-        const newFood = { foodName, foodImage, foodCategory, price, foodOrigin, quantity, email, name };
+        const newFood = { foodName, foodImage, foodCategory, price, foodOrigin, quantity, description, email, name };
 
-        const food = [foodName, name, email]
 
-        console.log(newFood)
-        console.log(food)
+        console.log(newFood);
+
+        // send data to the database
+        fetch('http://localhost:5000/foods', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newFood)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Food Added Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Add'
+                    })
+                }
+            })
 
     }
 
@@ -45,7 +77,7 @@ const AddFood = () => {
                     </div>
                     <div className="space-y-2">
                         <label className="block text-lg font-medium text-white">Food Origin</label>
-                        <input type="text" name="foodOrigin" required placeholder="Food Origin" className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
+                        <input type="text" name="foodOrigin" required placeholder="Food Origin (Country)" className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
                     </div>
                     <div className="space-y-2">
                         <label className="block text-lg font-medium text-white">Price</label>
@@ -54,6 +86,58 @@ const AddFood = () => {
                     <div className="space-y-2">
                         <label className="block text-lg font-medium text-white">Quantity</label>
                         <input type="text" name="quantity" required placeholder="Quantity" className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
+                    </div>
+                </div>
+                <div className="grid lg:grid-cols-2 gap-2 lg:gap-10">
+                    <div>
+                        <div>
+                            <label className="block text-xl font-medium text-white">Ingredients</label>
+                        </div>
+                        <div className="space-y-2 pl-5">
+                            <label className="block text-lg font-medium text-white">Item-01</label>
+                            <input type="text" name="item-1" required placeholder="Item-01" className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
+                        </div>
+                        <div className="space-y-2 pl-5">
+                            <label className="block text-lg font-medium text-white">Item-02</label>
+                            <input type="text" name="item-2" placeholder="Item-02" className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
+                        </div>
+                        <div className="space-y-2 pl-5">
+                            <label className="block text-lg font-medium text-white">Item-03</label>
+                            <input type="text" name="item-3" placeholder="Item-03" className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
+                        </div>
+                        <div className="space-y-2 pl-5">
+                            <label className="block text-lg font-medium text-white">Item-04</label>
+                            <input type="text" name="item-4" placeholder="Item-04" className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
+                        </div>
+                        <div className="space-y-2 pl-5">
+                            <label className="block text-lg font-medium text-white">Item-05</label>
+                            <input type="text" name="item-5" placeholder="Item-05" className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label className="block text-xl font-medium text-white">Making Procedure</label>
+                        </div>
+                        <div className="space-y-2 pl-5">
+                            <label className="block text-lg font-medium text-white">Step-01</label>
+                            <input type="text" name="step-1" placeholder="Step-01" required className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
+                        </div>
+                        <div className="space-y-2 pl-5">
+                            <label className="block text-lg font-medium text-white">Step-02</label>
+                            <input type="text" name="step-2" placeholder="Step-02" className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
+                        </div>
+                        <div className="space-y-2 pl-5">
+                            <label className="block text-lg font-medium text-white">Step-03</label>
+                            <input type="text" name="step-3" placeholder="Step-03" className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
+                        </div>
+                        <div className="space-y-2 pl-5">
+                            <label className="block text-lg font-medium text-white">Step-04</label>
+                            <input type="text" name="step-4" placeholder="Step-04" className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
+                        </div>
+                        <div className="space-y-2 pl-5">
+                            <label className="block text-lg font-medium text-white">Step-05</label>
+                            <input type="text" name="step-5" placeholder="Step-05" className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
+                        </div>
                     </div>
                 </div>
                 <div className="space-y-2">

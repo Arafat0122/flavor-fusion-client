@@ -6,8 +6,6 @@ const AllFood = () => {
 
     const foodsData = useLoaderData();
 
-    // const {foodName} = foodsData;
-
     return (
         <div>
             <h2 className="text-3xl">All Food here</h2>

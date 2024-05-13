@@ -9,6 +9,7 @@ import SingleFood from "../pages/SingleFood/SingleFood";
 import FoodPurchase from "../pages/FoodPurchase/FoodPurchase";
 import Gallery from "../pages/Gallery/Gallery";
 import PrivateRoute from "./PrivateRoutes";
+import AddFood from "../pages/MyProfile/AddFood/AddFood";
 
 
 const router = createBrowserRouter([
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
           element: <FoodPurchase></FoodPurchase>,
           loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
         },
+        {
+          path: '/add',
+          element: <AddFood></AddFood>
+        }
       ]
     },
   ]);

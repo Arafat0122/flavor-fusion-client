@@ -17,10 +17,10 @@ const SingleFood = () => {
             <Helmet>
                 <title>FlavorFusion | {foodName}</title>
             </Helmet>
-            <div className="flex flex-col items-center relative">
+            <div className="flex flex-col items-center my-5 relative">
                 <div className="bg-gray-700 h-36 md:h-52 lg:h-80 w-full"></div>
                 <div className="absolute top-12 md:top-16 lg:top-28">
-                    <img className='w-48 md:w-72 lg:w-96 h-44 md:h-72 lg:h-96 rounded-full shadow-2xl ring-8 ring-white hover:scale-110' src={foodImage} alt={foodName} />
+                    <img className='w-48 md:w-72 lg:w-96 h-48 md:h-72 lg:h-96 rounded-full shadow-2xl ring-8 ring-white hover:scale-110' src={foodImage} alt={foodName} />
                     <div className='w-16 md:w-24 lg:w-32 h-16 md:h-24 lg:h-32 text-2xl text-white flex gap-2 items-center justify-center rounded-full shadow-2xl bg-black ring-4 lg:ring-8 ring-white absolute top-0 lg:top-12 left-36 md:left-48 lg:left-80 hover:scale-125'>
                         <p className="text-center"><span className="font-bold text-sm lg:text-2xl">{price}$</span><span className="lg:pl-9 text-sm lg:text-xl text-right"> <br /> Only</span></p>
                     </div>

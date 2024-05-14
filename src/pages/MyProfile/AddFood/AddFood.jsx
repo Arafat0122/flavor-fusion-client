@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 
 const AddFood = () => {
@@ -61,7 +62,11 @@ const AddFood = () => {
 
     return (
         <div>
-            <form onSubmit={handleAddFood} className="lg:grid space-y-3 p-3 lg:p-8 rounded-lg bg-[url('https://i.ibb.co/TvsSZKP/travel.png')]">
+            <Helmet>
+                <title>FlavorFusion | Add Food</title>
+            </Helmet>
+            <form onSubmit={handleAddFood} className="lg:grid space-y-3 p-3 lg:p-8 rounded-lg bg-[url('https://c1.wallpaperflare.com/preview/135/941/297/clean-clean-background-blur-green.jpg')] bg-cover">
+            <h2 className="text-4xl lg:text-5xl text-center font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[#688012] to-[#531a1a] hover:scale-125 lg:hover:scale-150 hover:text-[#816f32] mb-5">Add Your Food</h2>
                 <div className="space-y-2">
                     <label className="block text-lg font-medium text-white">Food Name</label>
                     <input type="text" name="foodName" required placeholder="Food Name" className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />

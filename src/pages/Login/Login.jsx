@@ -109,7 +109,7 @@ const Login = () => {
                 <title>FlavorFusion | Login</title>
             </Helmet>
             <div className="w-full bg-[url('https://img.freepik.com/free-photo/abstract-blurred-people-night-festival-city-park-bokeh-background-vintage-tone_1258-79070.jpg')] bg-cover bg-bottom p-4 rounded-md shadow sm:p-8 text-gray-800 animate__animated animate__zoomIn">
-                <h2 className="text-4xl text-center font-extrabold bg-[#d9e0947c] text-[#57742b] hover:scale-110 lg:hover:scale-150 hover:text-[#816f32] mb-5 py-2 rounded-xl">Login to your account</h2>
+                <h2 className="text-3xl lg:text-4xl text-center font-extrabold bg-[#d9e0947c] text-[#57742b] hover:scale-110 lg:hover:scale-150 hover:text-[#816f32] mb-5 py-2 rounded-xl">Login to your account</h2>
                 <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-10">
                     <form onSubmit={handleLogIn} className="space-y-4">
                         <div className="space-y-2 form-control">

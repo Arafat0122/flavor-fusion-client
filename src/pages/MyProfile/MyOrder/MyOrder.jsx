@@ -78,8 +78,9 @@ const MyOrder = () => {
     return (
         <div>
             <Helmet>
-                <title>FlavorFusion | My Order</title>
+                <title>FlavorFusion | My Purchase</title>
             </Helmet>
+            <h2 className="text-4xl lg:text-5xl text-center font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[#688012] to-[#531a1a] hover:scale-125 lg:hover:scale-150 hover:text-[#816f32] pt-5 mb-10">My Ordered Food</h2>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}

@@ -21,8 +21,9 @@ const FoodPurchase = () => {
         const quantity = qua - quantity1;
         const name = form.get('name');
         const email = form.get('email');
+        const time = form.get('time');
 
-        const purchaseFood = { foodId, foodImage, foodName, price, quantity, name, email }; // Ensure foodId is included
+        const purchaseFood = { foodId, foodImage, foodName, price, quantity, name, email, time };
 
         console.log(purchaseFood);
 
@@ -51,11 +52,11 @@ const FoodPurchase = () => {
     return (
         <div>
             <Helmet>
-                <title>FlavorFusion | {foodName}</title>
+                <title>FlavorFusion | Purchase</title>
             </Helmet>
             <div className="grid lg:grid-cols-2 bg-center bg-[url('https://i.ibb.co/DWvWhm4/2147701348.jpg')] rounded-2xl lg:rounded-none">
                 <div className="content-center p-3 lg:p-0">
-                    <img className="w-72 lg:w-full mx-auto h-full ring-4 lg:ring-0 rounded-full lg:rounded-none lg:rounded-l-xl" src={foodImage} alt="" />
+                    <img className="w-72 lg:w-full mx-auto h-72 lg:h-full ring-4 lg:ring-0 rounded-full lg:rounded-none lg:rounded-l-xl" src={foodImage} alt="" />
                 </div>
                 <div className="content-center px-5 bg-[#00000081] rounded-2xl">
                     <form onSubmit={handlePurchase} className="space-y-3">
@@ -81,7 +82,7 @@ const FoodPurchase = () => {
                             <label className="block text-xl font-bold text-[#edff48]">Buyer Email</label>
                             <input type="text" name="email" readOnly placeholder="Your email" defaultValue={user ? user.email : ''} className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
                         </div>
-                        <div className="space-y-2">
+                        <div className="space-y-2 hidden">
                             <label className="block text-xl font-bold text-[#edff48]">Time</label>
                             <input type="text" name="time" readOnly defaultValue={new Date().toLocaleTimeString()} className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
                         </div>

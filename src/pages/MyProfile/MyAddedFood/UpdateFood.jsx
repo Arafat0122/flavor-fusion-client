@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { useLoaderData } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 
 const UpdateFood = () => {
@@ -62,7 +63,11 @@ const UpdateFood = () => {
 
     return (
         <div>
-            <form onSubmit={handleFood} className="lg:grid space-y-3 p-3 lg:p-8 rounded-lg bg-[url('https://i.ibb.co/TvsSZKP/travel.png')]">
+            <Helmet>
+                <title>FlavorFusion | Update</title>
+            </Helmet>
+            <form onSubmit={handleFood} className="lg:grid space-y-3 p-3 lg:p-8 rounded-lg bg-[url('https://c1.wallpaperflare.com/preview/135/941/297/clean-clean-background-blur-green.jpg')] bg-cover">
+                <h2 className="text-3xl lg:text-4xl text-center font-extrabold text-[#57742b] hover:scale-110 lg:hover:scale-150 hover:text-[#816f32] mb-5 rounded-xl">Update your Food</h2>
                 <div className="space-y-2">
                     <label className="block text-lg font-medium text-white">Food Name</label>
                     <input type="text" name="foodName" required defaultValue={foodsData.foodName} placeholder="Food Name" className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />

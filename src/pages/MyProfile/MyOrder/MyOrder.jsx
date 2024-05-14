@@ -36,9 +36,9 @@ const MyOrder = () => {
         const storedData = localStorage.getItem('userFoods');
         if (storedData) {
             setFoods(JSON.parse(storedData));
-        } else {
-            fetchData();
         }
+
+        fetchData();
     }, [url]);
 
     const handleDelete = _id => {
@@ -63,8 +63,11 @@ const MyOrder = () => {
                                 text: "Your file has been deleted.",
                                 icon: "success"
                             });
+                            const updatedData = JSON.parse(localStorage.getItem('userFoods')).filter(food => food._id !== _id);
+                            localStorage.setItem('userFoods', JSON.stringify(updatedData));
                             const remaining = foods.filter(food => food._id !== _id);
-                            setFoods(remaining);                     
+                            setFoods(remaining);
+
                         }
                     })
             }

@@ -4,6 +4,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from "../../Provider/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
 
@@ -70,11 +71,11 @@ const Register = () => {
                     },
                     body: JSON.stringify(user)
                 })
-                .then(res => res.json())
-                .then(data =>{
-                    console.log(data)
-                    console.log(user)
-                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        console.log(user)
+                    })
 
                 navigate('/');
                 toast.success('User registered successfully!', {
@@ -102,47 +103,55 @@ const Register = () => {
 
     return (
         <div>
-            <div className="w-full max-w-xl mx-auto bg-[url('https://i.ibb.co/TvsSZKP/travel.png')] p-4 rounded-md shadow sm:p-8 text-gray-800 animate__animated animate__zoomIn">
-                <h2 className="mb-3 text-3xl font-bold text-white text-center">Register your account</h2>
-                <form onSubmit={handleRegister} className="space-y-8">
-                    <div className="space-y-4">
-                        <div className="space-y-2">
-                            <label className="block text-sm font-medium text-white">Name</label>
-                            <input type="text" name="name" placeholder="Your name" className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
-                        </div>
-                        <div className="space-y-2">
-                            <label className="block text-sm font-medium text-white">Email address:</label>
-                            <input type="email" name="email" placeholder="Email" className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
-                        </div>
-                        <div className="space-y-2">
-                            <label className="block text-sm font-medium text-white">Photo URL</label>
-                            <input type="text" name="photo" placeholder="Photo URL" className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
-                        </div>
-                        <div className="space-y-2 relative">
-                            <div className="">
-                                <label htmlFor="password" className="text-sm font-medium text-white">Password</label>
+            <Helmet>
+                <title>FlavorFusion | Register</title>
+            </Helmet>
+            <div className="flex bg-[url('https://img.freepik.com/free-photo/top-view-asian-noodles-with-eggs-copy-space_23-2148694340.jpg?t=st=1715683087~exp=1715686687~hmac=d555882d53a83cd7f6f9075d883a443d9083f7151ab10469e1c3f182de6d8942&w=1380')] bg-center lg:bg-cover p-4">
+                <div className="lg:w-4/5">
+                    
+                </div>
+                <div className="w-full rounded-md shadow sm:p-8 text-gray-800 animate__animated animate__zoomIn">
+                    <h2 className="mb-3 text-3xl font-bold text-white text-center">Register your account</h2>
+                    <form onSubmit={handleRegister} className="space-y-8">
+                        <div className="space-y-4">
+                            <div className="space-y-2">
+                                <label className="block text-sm font-medium text-white">Name</label>
+                                <input type="text" name="name" placeholder="Your name" className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
                             </div>
-                            <input
-                                type={showPassword ? "text" : "password"}
-                                name="password"
-                                placeholder="Password"
-                                className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
-                            <span
-                                className="absolute top-9 right-3"
-                                onClick={() => setShowPassword(!showPassword)}>
-                                {
-                                    showPassword ? <FaEyeSlash className="text-2xl"></FaEyeSlash> : <FaEye className="text-2xl"></FaEye>
-                                }
+                            <div className="space-y-2">
+                                <label className="block text-sm font-medium text-white">Email address:</label>
+                                <input type="email" name="email" placeholder="Email" className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
+                            </div>
+                            <div className="space-y-2">
+                                <label className="block text-sm font-medium text-white">Photo URL</label>
+                                <input type="text" name="photo" placeholder="Photo URL" className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
+                            </div>
+                            <div className="space-y-2 relative">
+                                <div className="">
+                                    <label htmlFor="password" className="text-sm font-medium text-white">Password</label>
+                                </div>
+                                <input
+                                    type={showPassword ? "text" : "password"}
+                                    name="password"
+                                    placeholder="Password"
+                                    className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
+                                <span
+                                    className="absolute top-9 right-3"
+                                    onClick={() => setShowPassword(!showPassword)}>
+                                    {
+                                        showPassword ? <FaEyeSlash className="text-2xl"></FaEyeSlash> : <FaEye className="text-2xl"></FaEye>
+                                    }
 
-                            </span>
+                                </span>
+                            </div>
                         </div>
-                    </div>
-                    <button className="w-full px-8 py-3 font-semibold rounded-md bg-gradient-to-l from-[#46cadb] to-[#6887dd] text-gray-50">Submit</button>
-                </form>
-                <p className="text-sm text-center font-medium text-white bg-[#1111115e] w-fit mx-auto p-2 rounded-xl mt-10">Already have account?
-                    <Link to={'/login'} className="focus:underline hover:underline"> Login here</Link>
-                </p>
+                        <button className="w-full px-8 py-3 font-semibold rounded-md bg-gradient-to-l from-[#46cadb] to-[#6887dd] text-gray-50">Submit</button>
+                    </form>
+                    <p className="text-sm text-center font-medium text-white bg-[#1111115e] w-fit mx-auto p-2 rounded-xl mt-10">Already have account?
+                        <Link to={'/login'} className="focus:underline hover:underline"> Login here</Link>
+                    </p>
 
+                </div>
             </div>
         </div>
     );

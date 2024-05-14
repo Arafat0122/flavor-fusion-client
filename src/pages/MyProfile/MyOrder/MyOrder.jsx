@@ -81,7 +81,7 @@ const MyOrder = () => {
                             <th>Food Image</th>
                             <th className="text-center">Food Name</th>
                             <th className="text-center">Price</th>
-                            <th className="text-center">Update</th>
+                            <th className="text-center">Delete</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -24,7 +24,7 @@ const Navbar = () => {
 
 
     return (
-        <div className="mb-3">
+        <div>
             <div className="navbar bg-[#e3eaa7] text-[#57742b] py-4">
                 <div className="navbar-start">
                     <div className="dropdown">

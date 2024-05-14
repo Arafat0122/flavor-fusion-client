@@ -3,11 +3,11 @@
 
 const Footer = () => {
     return (
-        <div className="w-full bg-[#e3eaa7] text-[#57742b] space-y-5 pb-5 sm:text-center">
+        <div className="w-full bg-[#e3eaa7] text-[#57742b] space-y-5 pb-5 text-center">
             <footer>
                 <div className="py-10 grid md:grid-cols-2 lg:grid-cols-4 items-center lg:gap-5 space-y-5 lg:space-y-0">
                     <aside className="grid grid-cols-1 gap-1">
-                        <img className="h-12 w-fit sm:mx-auto" src="https://i.ibb.co/gRwHGLS/Flavor-Fusion.png" alt="" />
+                        <img className="h-12 w-fit mx-auto lg:mx-3" src="https://i.ibb.co/gRwHGLS/Flavor-Fusion.png" alt="" />
                         <p className="font-bold">
                             FlavorFusion <br />Serving reliable flavors since 2017
                         </p>

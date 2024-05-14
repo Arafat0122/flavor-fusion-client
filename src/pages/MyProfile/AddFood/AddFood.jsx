@@ -30,9 +30,9 @@ const AddFood = () => {
         const making = [step1, step2, step3, step4, step5];
         const description = { ingredients, making };
         const email = form.get('email');
-        const name = form.get('name');
+        const madeBy = form.get('name');
 
-        const newFood = { foodName, foodImage, foodCategory, price, foodOrigin, quantity, description, email, name };
+        const newFood = { foodName, foodImage, foodCategory, price, foodOrigin, quantity, description, email, madeBy };
 
 
         console.log(newFood);

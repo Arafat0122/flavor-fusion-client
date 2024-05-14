@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import FoodCard from "./FoodCard";
+import { Helmet } from "react-helmet";
 
 
 const AllFood = () => {
@@ -8,7 +9,10 @@ const AllFood = () => {
 
     return (
         <div>
-            <h2 className="text-3xl">All Food here</h2>
+            <Helmet>
+                <title>FlavorFusion | All Food</title>
+            </Helmet>
+            <h2 className="text-4xl text-center font-extrabold my-4">All Food</h2>
             <div className="space-y-5">
                 {
                     foodsData.map(foodData => <FoodCard 

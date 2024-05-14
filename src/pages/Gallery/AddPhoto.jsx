@@ -44,7 +44,7 @@ const AddPhoto = ({ closeModal }) => {
         <PrivateRoute>
             <div>
                 <dialog className="modal modal-bottom sm:modal-middle" open>
-                    <div className="modal-box bg-[#584624]">
+                    <div className="modal-box bg-[#5b5f1f]">
                         <h3 className="font-bold text-xl text-white ">Add Photo</h3>
                         <form onSubmit={handleAddPhoto} className='space-y-2'>
                             <div className="space-y-2">

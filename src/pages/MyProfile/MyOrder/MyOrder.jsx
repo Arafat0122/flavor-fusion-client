@@ -3,6 +3,7 @@ import { AuthContext } from "../../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
 import { FaTrash } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 
 const MyOrder = () => {
     const { user } = useContext(AuthContext);
@@ -76,26 +77,31 @@ const MyOrder = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>FlavorFusion | My Order</title>
+            </Helmet>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
                     <thead>
                         <tr className="text-xl">
-                            <th>Food Image</th>
+                            <th className="hidden lg:flex">Food Image</th>
                             <th className="text-center">Food Name</th>
                             <th className="text-center">Price</th>
+                            <th className="text-center">Time</th>
                             <th className="text-center">Delete</th>
                         </tr>
                     </thead>
                     <tbody>
                         {foods.map(food => (
-                            <tr key={food._id}>
-                                <td>
-                                    <img src={food.image} alt={food.foodName} className="w-12 h-12" />
+                            <tr className="" key={food._id}>
+                                <td className="hidden lg:flex">
+                                    <img src={food.foodImage} alt={food.foodName} className="w-20 h-20" />
                                 </td>
-                                <td className="text-center">{food.foodName}</td>
-                                <td className="text-center">{food.price}</td>
-                                <td className="text-center">
+                                <td className="text-center text-lg bg-gray-100">{food.foodName}</td>
+                                <td className="text-center text-lg">{food.price}</td>
+                                <td className="text-center text-lg">{food.time}</td>
+                                <td className="text-center bg-gray-100">
                                     <button onClick={() => handleDelete(food._id)} className="text-2xl pl-2"><FaTrash /></button>
                                 </td>
                             </tr>

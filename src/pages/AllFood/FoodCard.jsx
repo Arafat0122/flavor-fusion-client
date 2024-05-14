@@ -9,7 +9,7 @@ const FoodCard = ({ foodData }) => {
 
     return (
         <div>
-            <div className='bg-red-300 flex'>
+            <div className='bg-[#e3eaa7] text-[#57742b] flex'>
                 <div>
                     <img className='w-48 lg:w-96 h-44 lg:h-96 rounded-r-full shadow-2xl' src={foodImage} alt="" />
                 </div>

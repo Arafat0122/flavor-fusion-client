@@ -9,7 +9,7 @@ const MyAddedFood = () => {
     const { user } = useContext(AuthContext);
     const [foods, setFoods] = useState([]);
 
-    const url = `http://localhost:5000/purchaseFood?email=${user.email}`;
+    const url = `http://localhost:5000/foods?email=${user?.email}`;
 
     useEffect(() => {
         fetch(url)
@@ -24,7 +24,7 @@ const MyAddedFood = () => {
                     {/* head */}
                     <thead>
                         <tr className="text-xl">
-                            <th>Food Image</th>
+                            <th className="hidden lg:flex">Food Image</th>
                             <th className="text-center">Food Name</th>
                             <th className="text-center">Price</th>
                             <th className="text-center">Update</th>
@@ -33,8 +33,8 @@ const MyAddedFood = () => {
                     <tbody>
                         {foods.map(food => (
                             <tr key={food._id}>
-                                <td>
-                                    <img src={food.image} alt={food.foodName} className="w-12 h-12" />
+                                <td className="hidden lg:flex">
+                                    <img src={food.foodImage} alt={food.foodName} className="w-12 h-12" />
                                 </td>
                                 <td className="text-center">{food.foodName}</td>
                                 <td className="text-center">{food.price}</td>

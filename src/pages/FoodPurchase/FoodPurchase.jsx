@@ -14,7 +14,7 @@ const FoodPurchase = () => {
     const handlePurchase = e => {
         e.preventDefault();
         const form = new FormData(e.currentTarget);
-        const foodId = _id; // Assuming you have a way to get the food ID
+        const foodId = _id;
         const foodName = form.get('foodName');
         const price = form.get('price');
         const quantity1 = parseFloat(form.get('quantity'));
@@ -23,9 +23,8 @@ const FoodPurchase = () => {
         const email = form.get('email');
         const time = form.get('time');
 
-        const purchaseFood = { foodId, foodImage, foodName, price, quantity, name, email, time };
 
-        console.log(purchaseFood);
+        const purchaseFood = { foodId, foodImage, foodName, price, quantity, name, email, time };
 
         // send data to the database
         fetch('http://localhost:5000/purchaseFood', {
@@ -56,7 +55,7 @@ const FoodPurchase = () => {
             </Helmet>
             <div className="grid lg:grid-cols-2 bg-center bg-[url('https://i.ibb.co/DWvWhm4/2147701348.jpg')] rounded-2xl lg:rounded-none">
                 <div className="content-center p-3 lg:p-0">
-                    <img className="w-72 lg:w-full mx-auto h-72 lg:h-full ring-4 lg:ring-0 rounded-full lg:rounded-none lg:rounded-l-xl" src={foodImage} alt="" />
+                    <img className="w-72 lg:w-full mx-auto h-72 lg:h-[640px] ring-4 lg:ring-0 rounded-full lg:rounded-none lg:rounded-l-xl" src={foodImage} alt="" />
                 </div>
                 <div className="content-center px-5 bg-[#00000081] rounded-2xl">
                     <form onSubmit={handlePurchase} className="space-y-3">

@@ -39,24 +39,28 @@ const SingleFood = () => {
                             <div>
                                 <h3 className='text-2xl font-bold flex items-start'>Ingredients</h3>
                                 <ul className="flex flex-col items-start">
-                                    {description.ingredients.map((ingredient, idx) => <li
-                                        key={idx}
-                                        className="flex items-center gap-1 pl-2"
-                                    ><SiGumtree /> {ingredient}</li>)}
+                                    {description && description.ingredients && description.ingredients.map((ingredient, idx) => (
+                                        <li key={idx} className="flex items-center gap-1 pl-2">
+                                            <SiGumtree /> {ingredient}
+                                        </li>
+                                    ))}
                                 </ul>
                             </div>
                             <div>
                                 <h3 className='text-2xl font-bold flex items-start'>Making Procedure</h3>
                                 <ol className="flex flex-col items-start space-y-1">
-                                    {description.makingProcedure.map((step, idx) => <li
-                                        key={idx}
-                                        className="pl-2 text-left"
-                                    ><span className="font-bold">{idx + 1}. </span> {step}</li>)}
+                                    {description && description.makingProcedure && description.makingProcedure.map((step, idx) => (
+                                        <li key={idx} className="pl-2 text-left">
+                                            <span className="font-bold">{idx + 1}. </span> {step}
+                                        </li>
+                                    ))}
                                 </ol >
                             </div>
                         </div>
                     </div>
-                    <Link to={`/foodsPurchase/${_id}`}><button className="btn w-full mx-auto mt-3 lg:mt-8 content-center">Purchase</button></Link>
+                    <Link to={`/foodsPurchase/${_id}`}>
+                        <button className="btn w-full mx-auto mt-3 lg:mt-8 content-center">Purchase</button>
+                    </Link>
                 </div>
             </div>
         </div>

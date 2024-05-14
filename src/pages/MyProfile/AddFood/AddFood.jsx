@@ -28,8 +28,8 @@ const AddFood = () => {
         const step3 = form.get('step-3');
         const step4 = form.get('step-4');
         const step5 = form.get('step-5');
-        const making = [step1, step2, step3, step4, step5];
-        const description = { ingredients, making };
+        const makingProcedure = [step1, step2, step3, step4, step5];
+        const description = { ingredients, makingProcedure };
         const email = form.get('email');
         const madeBy = form.get('name');
 

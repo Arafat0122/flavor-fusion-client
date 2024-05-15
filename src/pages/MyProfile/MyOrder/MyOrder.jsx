@@ -14,7 +14,7 @@ const MyOrder = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(url);
+                const response = await fetch(url, {credentials: 'include'});
                 const data = await response.json();
                 setFoods(data);
 

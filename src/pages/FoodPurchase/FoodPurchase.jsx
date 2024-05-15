@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
@@ -8,25 +8,61 @@ const FoodPurchase = () => {
 
     const foods = useLoaderData();
     const { user } = useContext(AuthContext);
-
-    const { _id, foodName, foodImage, price, quantity:qua } = foods;
+    const { _id, foodName, foodImage, price, quantity: availableQuantity, madeBy } = foods;
+    const [quantity, setQuantity] = useState(0);
 
     const handlePurchase = e => {
         e.preventDefault();
         const form = new FormData(e.currentTarget);
-        const foodId = _id;
-        const foodName = form.get('foodName');
-        const price = form.get('price');
-        const quantity1 = parseFloat(form.get('quantity'));
-        const quantity = qua - quantity1;
-        const name = form.get('name');
-        const email = form.get('email');
-        const time = form.get('time');
+        const foodQuantity = parseInt(form.get('foodQuantity'));
+        setQuantity(foodQuantity)
+        if (availableQuantity === 0) {
+            // Show message and return if available quantity is zero
+            Swal.fire({
+                title: 'Not Available',
+                text: 'Sorry, this item is not available for purchase.',
+                icon: 'warning',
+                confirmButtonText: 'OK'
+            });
+            return;
+        }
 
+        if (foodQuantity > availableQuantity) {
+            // Show message and return if user tries to buy more than available quantity
+            Swal.fire({
+                title: 'Quantity Exceeded',
+                text: `You can't buy more than ${availableQuantity} items.`,
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+            return;
+        }
+        if (user && user.displayName === madeBy) {
+            // Show message and return if user tries to purchase their own added food items
+            Swal.fire({
+                title: 'Not Allowed',
+                text: 'You cannot purchase your own added food items.',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+            return;
+        }
 
-        const purchaseFood = { foodId, foodImage, foodName, price, quantity, name, email, time };
+        // Construct the purchase data object
+        const purchaseFood = {
+            foodId: _id,
+            foodImage,
+            foodName,
+            price,
+            quantity: foodQuantity,
+            name: user ? user.displayName : '',
+            email: user ? user.email : '',
+            time: new Date().toLocaleTimeString()
+        };
 
-        // send data to the database
+        console.log(purchaseFood)
+
+        // Send data to the database
         fetch('http://localhost:5000/purchaseFood', {
             method: 'POST',
             headers: {
@@ -42,11 +78,11 @@ const FoodPurchase = () => {
                         text: 'Food Purchase Successfully',
                         icon: 'success',
                         confirmButtonText: 'Purchased'
-                    })
+                    });
                 }
-            })
-
+            });
     }
+
 
     return (
         <div>
@@ -70,7 +106,7 @@ const FoodPurchase = () => {
                             </div>
                             <div className="space-y-2">
                                 <label className="block text-xl font-bold text-[#edff48]">Quantity</label>
-                                <input type="text" name="quantity" placeholder="Food Name" defaultValue='1' className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
+                                <input type="text" name="foodQuantity" placeholder="Food Name" defaultValue='1' className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
                             </div>
                         </div>
                         <div className="space-y-2">
@@ -86,7 +122,7 @@ const FoodPurchase = () => {
                             <input type="text" name="time" readOnly defaultValue={new Date().toLocaleTimeString()} className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
                         </div>
                         <div className="w-fit mx-auto p-5">
-                            <input type="submit" value="Purchase" className="btn lg:w-96 rounded-md bg-gradient-to-l from-[#46cadb] to-[#6887dd] text-gray-50 font-bold text-lg" />
+                            <input type="submit" value="Purchase" disabled={availableQuantity === 0 || quantity > availableQuantity} className="btn lg:w-96 rounded-md bg-gradient-to-l from-[#46cadb] to-[#6887dd] text-gray-50 font-bold text-lg" />
                         </div>
                     </form>
                 </div>

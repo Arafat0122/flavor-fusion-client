@@ -21,7 +21,7 @@ const Slider = () => {
         progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
     };
     return (
-        <div>
+        <div className='bg-[#000000d7] my-3'>
             <Swiper
                 spaceBetween={30}
                 centeredSlides={true}
@@ -38,7 +38,7 @@ const Slider = () => {
                 className="mySwiper"
             >
                 <SwiperSlide>
-                    <div className="her h-fit" style={{ backgroundImage: 'url(https://www.bu.edu/bhr/files/2017/01/service-1303313_1280.jpg)' }}>
+                    <div className="her h-full" style={{ backgroundImage: 'url(https://www.bu.edu/bhr/files/2017/01/service-1303313_1280.jpg)' }}>
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="text-neutral-content py-10 md:py-16 lg:py-28 px-5 md:px-14 lg:px-16">
                             <div className="h-fit my-auto">

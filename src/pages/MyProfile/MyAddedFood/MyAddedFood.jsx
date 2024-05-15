@@ -10,10 +10,10 @@ const MyAddedFood = () => {
     const { user } = useContext(AuthContext);
     const [foods, setFoods] = useState([]);
 
-    const url = `http://localhost:5000/foods?email=${user?.email}`;
+    const url = `http://localhost:5000/myFoods?email=${user?.email}`;
 
     useEffect(() => {
-        fetch(url)
+        fetch(url, { credentials: 'include' })
             .then(res => res.json())
             .then(data => setFoods(data))
     }, [])

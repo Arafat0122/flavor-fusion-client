@@ -37,8 +37,6 @@ const UpdateFood = () => {
         const updatedFood = { foodName, foodImage, foodCategory, price, foodOrigin, quantity, description };
 
 
-        console.log(updatedFood);
-
         // send data to the database
         fetch(`https://flavor-fusion-psi.vercel.app/foods/${foodsData._id}`, {
             method: 'PUT',

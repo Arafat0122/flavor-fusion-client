@@ -60,8 +60,6 @@ const FoodPurchase = () => {
             time: new Date().toLocaleTimeString()
         };
 
-        console.log(purchaseFood)
-
         // Send data to the database
         fetch('https://flavor-fusion-psi.vercel.app/purchaseFood', {
             method: 'POST',

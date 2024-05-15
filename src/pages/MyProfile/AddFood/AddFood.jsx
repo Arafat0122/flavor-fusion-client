@@ -36,8 +36,6 @@ const AddFood = () => {
         const newFood = { foodName, foodImage, foodCategory, price, foodOrigin, quantity, description, email, madeBy };
 
 
-        console.log(newFood);
-
         // send data to the database
         fetch('https://flavor-fusion-psi.vercel.app/foods', {
             method: 'POST',

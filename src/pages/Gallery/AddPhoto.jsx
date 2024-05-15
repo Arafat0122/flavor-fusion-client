@@ -18,8 +18,6 @@ const AddPhoto = ({ closeModal }) => {
 
         const photoAdded = { userName, feedback, imageUrl };
 
-        console.log(photoAdded)
-
         fetch('https://flavor-fusion-psi.vercel.app/gallery/', {
             method: 'POST',
             headers: {

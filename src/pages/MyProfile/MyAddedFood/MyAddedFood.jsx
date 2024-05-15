@@ -10,7 +10,7 @@ const MyAddedFood = () => {
     const { user } = useContext(AuthContext);
     const [foods, setFoods] = useState([]);
 
-    const url = `http://localhost:5000/myFoods?email=${user?.email}`;
+    const url = `https://flavor-fusion-psi.vercel.app/myFoods?email=${user?.email}`;
 
     useEffect(() => {
         fetch(url, { credentials: 'include' })

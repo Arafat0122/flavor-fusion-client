@@ -40,7 +40,7 @@ const UpdateFood = () => {
         console.log(updatedFood);
 
         // send data to the database
-        fetch(`http://localhost:5000/foods/${foodsData._id}`, {
+        fetch(`https://flavor-fusion-psi.vercel.app/foods/${foodsData._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

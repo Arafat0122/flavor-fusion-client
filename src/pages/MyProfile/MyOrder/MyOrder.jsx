@@ -9,7 +9,7 @@ const MyOrder = () => {
     const { user } = useContext(AuthContext);
     const [foods, setFoods] = useState([]);
 
-    const url = `http://localhost:5000/purchaseFood?email=${user?.email}`;
+    const url = `https://flavor-fusion-psi.vercel.app/purchaseFood?email=${user?.email}`;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -53,7 +53,7 @@ const MyOrder = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/purchaseFood/${_id}`, {
+                fetch(`https://flavor-fusion-psi.vercel.app/purchaseFood/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

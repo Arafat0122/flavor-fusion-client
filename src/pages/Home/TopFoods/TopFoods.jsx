@@ -7,15 +7,14 @@ const TopFoods = () => {
     const [topFoods, setTopFoods] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/foods')
+        fetch('https://flavor-fusion-psi.vercel.app/foods')
             .then(res => res.json())
             .then(data => {
-                setTopFoods(data)
-                console.log(topFoods)
-                console.log(data)
-            })
-            
-    }, [])
+                // Sort food items based on purchase count
+                const sortedFoods = data.sort((a, b) => b.purchaseCount - a.purchaseCount).slice(0, 6);
+                setTopFoods(sortedFoods);
+            });
+    }, []);
 
     return (
         <div className="mb-10">

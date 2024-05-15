@@ -20,7 +20,7 @@ const AddPhoto = ({ closeModal }) => {
 
         console.log(photoAdded)
 
-        fetch('http://localhost:5000/gallery/', {
+        fetch('https://flavor-fusion-psi.vercel.app/gallery/', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

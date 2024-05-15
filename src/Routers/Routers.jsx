@@ -36,22 +36,22 @@ const router = createBrowserRouter([
         {
           path: '/gallery',
           element: <Gallery></Gallery>,
-          loader: () => fetch('http://localhost:5000/gallery')
+          loader: () => fetch('https://flavor-fusion-psi.vercel.app/gallery')
         },
         {
           path: '/foods',
           element: <AllFood></AllFood>,
-          loader: () => fetch('http://localhost:5000/foods')
+          loader: () => fetch('https://flavor-fusion-psi.vercel.app/foods')
         },
         {
           path: '/foods/:id',
           element: <SingleFood></SingleFood>,
-          loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
+          loader: ({params}) => fetch(`https://flavor-fusion-psi.vercel.app/foods/${params.id}`)
         },
         {
           path: '/foodsPurchase/:id',
           element: <PrivateRoute><FoodPurchase></FoodPurchase></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
+          loader: ({params}) => fetch(`https://flavor-fusion-psi.vercel.app/foods/${params.id}`)
         },
         {
           path: '/add',
@@ -68,7 +68,7 @@ const router = createBrowserRouter([
         {
           path: '/update/:id',
           element: <PrivateRoute><UpdateFood></UpdateFood></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
+          loader: ({params}) => fetch(`https://flavor-fusion-psi.vercel.app/foods/${params.id}`)
         }
       ]
     },

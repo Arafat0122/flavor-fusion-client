@@ -63,7 +63,7 @@ const FoodPurchase = () => {
         console.log(purchaseFood)
 
         // Send data to the database
-        fetch('http://localhost:5000/purchaseFood', {
+        fetch('https://flavor-fusion-psi.vercel.app/purchaseFood', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

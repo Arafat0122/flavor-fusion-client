@@ -1,8 +1,13 @@
-# React + Vite
+# FlavorFusion
+# Live Site Link
+https://flavor-fusion-c5a15.web.app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Features of the Website
+1. Firebase authentication
+2. Secure data for logged in user
+3. User friendly responsive interface 
+4. Search functionality
+5. Logged in user can add food and photo
 
-Currently, two official plugins are available:
+# Assignment_ID: assignment_category_0005
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh

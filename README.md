@@ -1,7 +1,7 @@
 # Flavor Fusion
 
 ## Live Site Link
-[Flavor Fusion Live Site](https://flavor-fusion-c5a15.web.app)
+[Flavor Fusion Live Site](https://flavor-fusion-ask.netlify.app)
 
 ## Project Overview
 Flavor Fusion is a dynamic web application designed to enhance the culinary experience for users. The platform offers a vast collection of recipes, cooking tips, and ingredient information to help users discover new dishes and improve their cooking skills. By providing a user-friendly interface and a comprehensive database, Flavor Fusion aims to solve the problem of finding reliable and diverse culinary content online.
@@ -24,10 +24,26 @@ Flavor Fusion is a dynamic web application designed to enhance the culinary expe
 To run this project locally, follow these steps:
 
 1. **Clone the Repository:**
+   
    ```bash
    git clone https://github.com/Arafat0122/flavor-fusion-client.git
 
 2. **Navigate to the Project Directory:**
+  
+   ```bash
+   cd flavor-fusion-client
+
+3. **Install Dependencies:**
+   
+   ```bash
+   cd flavor-fusion-client
+
+4. **Set Up Environment Variables:**
+
+- **Create a .env file in the root directory.
+- **Add necessary environment variables (e.g., MongoDB connection string, Firebase config).
+
+5. **Run the Application:**
    ```bash
    cd flavor-fusion-client
 

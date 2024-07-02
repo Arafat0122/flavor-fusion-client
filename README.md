@@ -44,6 +44,6 @@ To run this project locally, follow these steps:
 - Add necessary environment variables (e.g., MongoDB connection string, Firebase config).
 
 5. **Run the Application:**
+   
    ```bash
    cd flavor-fusion-client
-

@@ -40,8 +40,8 @@ To run this project locally, follow these steps:
 
 4. **Set Up Environment Variables:**
 
-- **Create a .env file in the root directory.
-- **Add necessary environment variables (e.g., MongoDB connection string, Firebase config).
+- Create a .env file in the root directory.
+- Add necessary environment variables (e.g., MongoDB connection string, Firebase config).
 
 5. **Run the Application:**
    ```bash
